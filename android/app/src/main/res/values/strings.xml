@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='utf-8'?>
 <resources>
-    <string name="app_name">myApp</string>
-    <string name="title_activity_main">myApp</string>
-    <string name="package_name">com.ramson.developers.starter</string>
-    <string name="custom_url_scheme">com.ramson.developers.starter</string>
+    <string name="app_name">CIM</string>
+    <string name="title_activity_main">CIM</string>
+    <string name="package_name">com.ramson.developers.cim.mobile</string>
+    <string name="custom_url_scheme">com.ramson.developers.cim.mobile</string>
 </resources>
