@@ -1,0 +1,14 @@
+<layout>
+  <div class="right_col" role="main">
+    <div class="page-title">
+      <div class="title_left">
+        <h3>Country List</h3>
+      </div>
+    </div>
+    <hr />
+    <div class="clearfix"></div>
+
+    <app-listcontent [list]="countryList" [hasCreateAccess]="hasAddAccess" [hasDeleteAccess]="hasDeleteAccess"
+      [hasReadAccess]="hasReadAccess" screenLink="/country" deleteParam="COU"></app-listcontent>
+  </div>
+</layout>

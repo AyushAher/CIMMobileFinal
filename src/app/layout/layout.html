@@ -1,0 +1,29 @@
+<div class="wrapper">
+  <app-loader *ngIf="showSpinner" class="spinner"></app-loader>
+
+  <app-nav-sidemenu></app-nav-sidemenu>
+  <div id="content-wrapper" class="d-flex flex-column">
+    <div id="content">
+
+      <app-nav-menu [isClosed]="isClosed" (showNotifications)="Notifications($event)"></app-nav-menu>
+      <div class="container-fluid mt-4">
+        <ng-content></ng-content>
+      </div>
+    </div>
+  </div>
+  <div class="overlay toggle-icon"></div>
+</div>
+
+<style>
+  .spinner {
+    position: absolute;
+    top: 40%;
+    left: 25%;
+    transform: translate(50%, 50%);
+    z-index: 60;
+  }
+
+  .wrapper {
+    height: 618px;
+  }
+</style>

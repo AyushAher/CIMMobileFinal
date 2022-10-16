@@ -1,0 +1,55 @@
+<layout>
+  <div class="right_col" role="main">
+    <div class="container">
+      <div class="page-title">
+        <div class="title_left">
+          <div class="d-flex" style="justify-content: space-between;">
+            <h3>Search Instrument</h3>
+            <div class="d-flex">
+              <a *ngIf="showGrid && isDist" (click)="toggleFilter()" class="nav-link">
+                <i class="fas fa-arrow-left" title="filter"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <hr />
+      <div class="clearfix"></div>
+
+      <form *ngIf="showGrid && !isDist" ngNoForm [formGroup]="form" #sform (ngSubmit)="onSubmit()">
+        <div class="row my-4" style="margin-left: 0px;">
+          <div class="col-sm-4">
+            <label for="search">Serial No.</label>
+            <input type="text" formControlName="search" class="form-control"
+              [ngClass]="{ 'is-invalid': submitted && f.search.errors }" />
+            <div *ngIf="f.search.errors" class="invalid-feedback">
+              <div *ngIf="f.search.errors.required">Enter keyword is required</div>
+            </div>
+          </div>
+          <div class="col-sm-4">
+            <label for="search">Customer Site</label>
+            <select formControlName="custSiteId" class="form-select"
+              [ngClass]="{ 'is-invalid': submitted && f.custSiteId.errors }">
+              <option value="0">--Select--</option>
+              <option *ngFor="let config of customersite" value={{config.id}}>
+                {{config.customerSite}}
+              </option>
+            </select>
+          </div>
+          <div class="col-sm-4" style="margin-top:25px;">
+            <button class="btn" style="margin-left: 10px;" type="submit">
+              <i class="fas fa-search"></i>
+            </button>
+          </div>
+        </div>
+      </form>
+
+      <app-distributorfilter [hasInstrument]="false" (showData)="ShowData($event)" *ngIf="!showGrid"
+        (nData)="DataFilter($event)" controller="Instrument">
+      </app-distributorfilter>
+
+      <app-listcontent *ngIf="showGrid || visible" [list]="List" [hasReadAccess]="true" screenLink="/instrumentRonly">
+      </app-listcontent>
+    </div>
+  </div>
+</layout>

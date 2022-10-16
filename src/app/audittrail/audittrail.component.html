@@ -1,0 +1,16 @@
+<layout>
+  <div class="right_col" role="main">
+    <div class="page-title">
+      <div class="title_left">
+        <h3>Audit Trail List</h3>
+      </div>
+    </div>
+    <hr />
+    <div class="clearfix"></div>
+
+
+    <app-listcontent [list]="List" [hasCreateAccess]="hasAddAccess" [hasDeleteAccess]="hasDeleteAccess"
+      [hasReadAccess]="hasReadAccess" screenLink="/audittrail" deleteParam="VSDET"></app-listcontent>
+
+  </div>
+</layout>

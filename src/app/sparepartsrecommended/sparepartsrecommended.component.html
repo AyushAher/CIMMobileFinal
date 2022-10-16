@@ -1,0 +1,30 @@
+<layout>
+  <div class="right_col" role="main">
+    <div class="container">
+      <div class="d-flex" style="align-items: center; justify-content: space-between;">
+        <h3>Spareparts Recommended </h3>
+        <div class="d-flex">
+          <a *ngIf="!showGrid && isDist" (click)="toggleFilter()" style="font-size: 1.25rem;" class="nav-link">
+            <i class="fas fa-arrow-left" title="Grid"></i>
+          </a>
+          <a *ngIf="showGrid && isDist" (click)="toggleFilter()" style="font-size: 1.25rem;" class="nav-link">
+            <i class="fas fa-search" title="Search"></i>
+          </a>
+          <a routerLink="/offerrequest" title="Raise PO" style="font-size: 1.25rem;" class="nav-link">
+            <i class="fas fa-dollar-sign"></i>
+          </a>
+        </div>
+      </div>
+      <hr />
+      <div class="clearfix"></div>
+
+
+      <app-distributorfilter (showData)="ShowData($event)" *ngIf="!showGrid && isDist" (nData)="DataFilter($event)"
+        controller="SparePartsRecommended">
+      </app-distributorfilter>
+
+      <app-listcontent *ngIf="showGrid" [hasReadAccess]="hasReadAccess" [list]="List">
+      </app-listcontent>
+    </div>
+  </div>
+</layout>

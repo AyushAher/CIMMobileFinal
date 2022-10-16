@@ -1,0 +1,14 @@
+<layout>
+    <div class="right_col" role="main">
+        <div class="page-title mt-2">
+            <div class="title_left">
+                <h3 style="font-size:1.4rem"> Advance Request Form</h3>
+            </div>
+        </div>
+        <hr />
+        <div class="clearfix"></div>
+
+        <app-listcontent [list]="adReqList" [hasCreateAccess]="hasAddAccess" [hasDeleteAccess]="hasDeleteAccess"
+            [hasReadAccess]="hasReadAccess" screenLink="/advancerequestform" deleteParam="ADREQ"></app-listcontent>
+    </div>
+</layout>

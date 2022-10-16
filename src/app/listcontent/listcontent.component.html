@@ -1,0 +1,45 @@
+<button class="btn btn-outline-primary addButton" *ngIf="hasCreateAccess">
+  <a [routerLink]="screenLink"><i class="fas fa-pen"></i></a>
+</button>
+
+<!-- <div class="overflow"> -->
+<table *ngIf="list != null && list.length > 0" id="example" class="table table-striped">
+  <thead>
+    <tr>
+      <th *ngIf="list[0].firstItemLabel != null && list[0].firstItemLabel != ''">
+        <span class="text">{{list[0]?.firstItemLabel}}</span>
+      </th>
+      <th *ngIf="list[0].secondItemLabel != null && list[0].secondItemLabel != ''">
+        <span class="text">{{list[0]?.secondItemLabel}}</span>
+      </th>
+      <th *ngIf="list[0].thirdItemLabel != null && list[0].thirdItemLabel != ''">
+        <span class="text">{{list[0]?.thirdItemLabel}}</span>
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+
+    <tr *ngFor="let x of list">
+      <td (click)="Navigate(x?.id)" *ngIf="list[0].firstItemLabel != null && list[0].firstItemLabel != ''">
+        <a style="color:#0d6efd;" class="my-4" [innerHTML]="x?.firstItem"></a>
+      </td>
+      <td (click)="Navigate(x?.id)" *ngIf="list[0].secondItemLabel != null && list[0].secondItemLabel != ''">
+        <a style="color:#0d6efd;" class="my-4" [innerHTML]="x?.secondItem"></a>
+      </td>
+
+      <td (click)="Navigate(x?.id)" *ngIf="list[0].thirdItemLabel != null && list[0].thirdItemLabel != ''">
+        <a style="color:#0d6efd;" class="my-4" [innerHTML]="x?.thirdItem"></a>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<!-- </div> -->
+
+<h4 *ngIf="list == null || list.length==0">No records available</h4>
+
+
+<style>
+  .overflow {
+    overflow: auto;
+  }
+</style>

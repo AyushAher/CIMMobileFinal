@@ -1,0 +1,18 @@
+<layout>
+  <div class="right_col" role="main">
+    <div class="container">
+      <div class="col-md-12 col-sm-12">
+        <div class="page-title">
+          <div class="title_left">
+            <h3>Customer Satisfaction Survey List</h3>
+          </div>
+        </div>
+        <hr />
+
+        <app-listcontent [hasCreateAccess]="hasAddAccess" [hasDeleteAccess]="hasDeleteAccess"
+          [hasReadAccess]="hasReadAccess" [list]="List" deleteParam="CUSTS" screenLink="/customersatisfactionsurvey">
+        </app-listcontent>
+      </div>
+    </div>
+  </div>
+</layout>

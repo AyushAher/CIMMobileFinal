@@ -1,0 +1,36 @@
+<layout>
+  <div class="right_col" role="main">
+    <div class="container">
+      <div class="page-title">
+        <div class="title_left">
+
+          <div class="d-flex" style="align-items: center; justify-content: space-between;">
+            <h3>Spare Parts Quote List</h3>
+            <div class="d-flex">
+              <a *ngIf="!showGrid && isDist" (click)="toggleFilter()" style="font-size: 1.25rem;" class="nav-link">
+                <i class="fas fa-arrow-left" title="Grid"></i>
+              </a>
+              <a *ngIf="showGrid && isDist" (click)="toggleFilter()" style="font-size: 1.25rem;" class="nav-link">
+                <i class="fas fa-search" title="Search"></i>
+              </a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+      <hr />
+      <div class="clearfix"></div>
+
+
+      <app-distributorfilter (showData)="ShowData($event)" *ngIf="!showGrid && isDist" (nData)="DataFilter($event)"
+        controller="Offerrequest">
+      </app-distributorfilter>
+
+      <div class="col-md-12 col-sm-12">
+        <app-listcontent [hasCreateAccess]="hasAddAccess" [hasDeleteAccess]="hasDeleteAccess" *ngIf="showGrid"
+          [hasReadAccess]="hasReadAccess" [list]="model" deleteParam="OFFER" screenLink="/offerrequest">
+        </app-listcontent>
+      </div>
+    </div>
+  </div>
+</layout>
