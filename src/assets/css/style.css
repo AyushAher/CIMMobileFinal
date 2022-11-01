@@ -68,6 +68,7 @@ a {
 .wrapper {
   width: 100%;
   position: relative;
+  overflow-x: hidden;
 }
 
 .graycolorbox,
@@ -365,6 +366,7 @@ a {
   height: 60px;
   padding-left: 30px;
   padding-right: 30px;
+  margin-top: 24px;
 }
 
 .navbar .dropdown-menu {
@@ -1001,6 +1003,7 @@ i.custLink,
 .close {
   color: #0a58ca !important;
   cursor: pointer;
+  margin: 0px 15px;
 }
 
 .notificationDropdown {
