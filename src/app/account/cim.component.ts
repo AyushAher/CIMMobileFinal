@@ -32,6 +32,7 @@ export class CIMComponent implements OnInit {
   @Input('username') username
   @Input('password') password
   @Input('cimData') cimData
+  isAdmin: boolean = false;
 
   lstBusinessUnit: any = []
   lstBrand: any = []
@@ -73,6 +74,7 @@ export class CIMComponent implements OnInit {
       return this.notificationService.showError("Some Error Occurred. Please Refresh the page.", "Error")
 
     this.user = this.accountService.userValue;
+    this.isAdmin = this.user.username.toLowerCase() == "admin"
     this.lstBrand = data.brandList;
     this.companyList = data.companyList;
     this.lstBusinessUnit = data.businessUnitList;
